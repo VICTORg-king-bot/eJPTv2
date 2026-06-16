@@ -16,6 +16,13 @@ Escanea todos los puertos TCP, detecta versiones de servicios y aplica scripts p
 nmap -p- --open -sS -sC -sV --min-rate 5000 -n -vvv -Pn <IP_objetivo> -oN escaneo
 ```
 
+```shell
+nmap -sn <ip>/24
+sudo nmap -sS --min-rate 5000 -p- --opem -Pn <IP,ip,ip,ip> -oN tcp_scan.txt
+grep '^[0-9]' <-on> | cut -d '/' -f1 | sort -u | xargs | | tr '' ','
+nmap -<grep> -sC -sV --open -Pn <IP,ip,ip,ip> -oN Full_scan.txt
+```
+
 **Parametros explicados:**
 - `-p-` -> Escanea todos los 65535 puertos TCP
 - `--open` -> Muestra solo puertos abiertos
@@ -36,6 +43,9 @@ Nmap dispone de scripts para detectar vulnerabilidades conocidas en los servicio
 nmap --script "vuln" -p<puerto> <IP_objetivo>
 ```
 
+```bash
+nmap --script "smb-vuln-*" -p<puerto> <IP_objetivo>
+```
 ## Escaneo de Puertos UDP
 
 Por defecto nmap solo escanea TCP. Para descubrir servicios UDP como SNMP o DNS:

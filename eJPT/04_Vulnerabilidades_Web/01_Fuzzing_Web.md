@@ -5,7 +5,7 @@ El fuzzing web permite descubrir rutas, archivos y directorios ocultos en un ser
 ## Gobuster
 
 ```bash
-gobuster dir -u http://<IP>/ -w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt -x txt,py,php,sh
+gobuster dir -u http://<IP>/ -w /usr/share/wordlists/seclists/Discovery/Web-Content/DirBuster-2007_directory-list-lowercase-2.3-medium.txt  -x txt,py,php,sh
 ```
 
 > `-x` especifica extensiones a buscar (php, txt, etc.)
@@ -13,12 +13,12 @@ gobuster dir -u http://<IP>/ -w /usr/share/wordlists/dirbuster/directory-list-lo
 ## Wfuzz
 
 ```bash
-wfuzz -c --hc 404 -w /usr/share/wordlists/SecLists/Discovery/Web-Content/directory-list-lowercase-2.3-medium.txt http://<IP>/FUZZ
+wfuzz -c --hc 404 -w /usr/share/wordlists/seclists/Discovery/Web-Content/DirBuster-2007_directory-list-lowercase-2.3-medium.txt  http://<IP>/FUZZ
 ```
 
 > `--hc 404` oculta las respuestas con codigo 404 (no encontrado).
 > `FUZZ` es la palabra clave que wfuzz reemplaza con cada elemento del diccionario.
-
+> `--hl 368` oculta las respuestas con 368 líneas.
 ## Dirb
 
 ```bash

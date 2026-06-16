@@ -62,3 +62,30 @@ run
 ```
 
 > Los exploits sugeridos deben probarse uno a uno.
+
+
+## Searchsploit
+
+Permite buscar exploits conocidos en la base de datos de Exploit-DB a partir del nombre de un software, servicio, versión o vulnerabilidad identificada durante la enumeración.
+
+```cmd
+searchsploit <posible_vulnerabilidad>
+```
+
+Ejemplo: 
+
+```
+searchsploit samba 3.0.20
+```
+
+Una vez identificado el exploit de interés, puede copiarse al directorio actual para su análisis:
+
+```
+searchsploit -m <numero_identificador_Path>
+```
+
+Visualizar el contenido del exploit:
+
+```
+cat <ruta/del/archivo>
+```

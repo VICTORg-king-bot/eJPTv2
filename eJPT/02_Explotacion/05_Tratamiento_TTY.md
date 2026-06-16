@@ -30,3 +30,24 @@ export SHELL=bash
 4. `reset xterm` -> Resetea la terminal con formato xterm
 5. `export TERM=xterm` -> Define el tipo de terminal (permite colores y limpieza)
 6. `export SHELL=bash` -> Define la shell como bash
+
+## Python
+
+`which python3` o `which python`
+
+```
+python3 -c 'import pty; pty.spawn("/bin/bash")'
+``` 
+
+```bash
+reset xterm
+export TERM=xterm
+export SHELL=bash
+```
+
+
+en maquina atacante:
+`stty size` o `stty -a`
+
+Después de reset xterm
+`stty rows <filas> cols <columnas>`

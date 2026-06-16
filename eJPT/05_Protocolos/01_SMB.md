@@ -20,11 +20,16 @@ Conectarse a un recurso compartido:
 
 ```bash
 smbclient -U 'usuario' //<IP_objetivo>/recurso
+smbclient //<IP_objetivo>/recurso -N   #para acceder sin usuario
 ```
 
 ## Enumeracion con smbmap
 
 smbmap muestra permisos de los recursos compartidos (lectura/escritura).
+
+```bash
+smbmap -H <IP_objetivo>
+```
 
 ```bash
 smbmap -H <IP_objetivo> -u 'usuario' -p 'contraseña'
@@ -36,6 +41,40 @@ smbmap -H <IP_objetivo> -u 'usuario' -p 'contraseña' -r recurso
 
 > `-r` lista recursivamente el contenido del recurso compartido.
 
+## Enumeracion con crackmapexec
+
+Listar recursos compartidos sin credenciales (acceso anónimo):
+
+```
+crackmapexec <IP_objetivo> -u '' -p ''  
+```
+
+Enumerar usuarios:
+
+```
+crackmapexec smb <IP_objetivo> -u '' -p '' --users
+```
+
+Enumerar recursos compartidos SMB
+
+```
+crackmapexec smb <IP_objetivo> -u '' -p '' --shares
+```
+
+Con credenciales conocidas:
+
+```
+crackmapexec <IP_objetivo> -u 'usuario' -p <password o diccionario de pswds>
+```
+
+## Descargar archivos
+
+`promp` evita confirmación de cada archivo descargado por SMB:
+
+```
+smb; \> prompt
+smb; \> mget *
+```
 ## Fuerza Bruta SMB con Metasploit
 
 ```bash

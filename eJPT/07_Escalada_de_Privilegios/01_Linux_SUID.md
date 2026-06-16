@@ -1,6 +1,6 @@
 # Linux: Escalada por Binarios SUID
 
-Los binarios SUID se ejecutan con privilegios del dueno (generalmente root). Si encontramos un binario SUID que no deberia serlo, podemos escalar privilegios.
+Los binarios SUID se ejecutan con privilegios del dueno (generalmelsnte root). Si encontramos un binario SUID que no deberia serlo, podemos escalar privilegios.
 
 ## Buscar Binarios SUID
 
@@ -16,7 +16,7 @@ La pagina [**GTFOBins** ](https://gtfobins.github.io/) muestra como abusar de bi
 
 ```bash
 env /bin/sh -p
-```
+``find / -perm -4000 2>/dev/null`
 
 ### Ejemplo con systemctl
 

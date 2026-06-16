@@ -4,23 +4,23 @@ Conocer los puertos por defecto ayuda a identificar rápidamente que servicios e
 
 ## Protocolos TCP
 
-| Puerto | Servicio     | Descripcion                        |
-| ------ | ------------ | ---------------------------------- |
-| 21     | FTP          | Transferencia de archivos          |
-| 22     | SSH          | Shell seguro (acceso remoto)       |
-| 23     | Telnet       | Shell sin cifrar (inseguro)        |
-| 25     | SMTP         | Envio de correo                    |
-| 53     | DNS          | Resolucion de nombres              |
-| 80     | HTTP         | Web sin cifrar                     |
-| 110    | POP3         | Recepcion de correo                |
-| 135    | RPC          | Llamadas a procedimiento remoto    |
-| 139    | NetBIOS      | Comparticion de archivos (SMB)     |
-| 143    | IMAP         | Correo electronico                 |
-| 443    | HTTPS        | Web cifrada                        |
-| 445    | SMB          | Comparticion de archivos Windows   |
-| 3306   | MySQL        | Base de datos MySQL                |
-| 3389   | RDP          | Escritorio remoto Windows          |
-| 8080   | HTTP-Proxy   | Servidor web alternativo           |
+| Puerto | Servicio   | Descripcion                      |
+| ------ | ---------- | -------------------------------- |
+| 21     | FTP        | Transferencia de archivos        |
+| 22     | SSH        | Shell seguro (acceso remoto)     |
+| 23     | Telnet     | Shell sin cifrar (inseguro)      |
+| 25     | SMTP       | Envio de correo                  |
+| 53     | DNS        | Resolucion de nombres            |
+| 80     | HTTP       | Web sin cifrar                   |
+| 110    | POP3       | Recepcion de correo              |
+| 135    | RPC        | Llamadas a procedimiento remoto  |
+| 139    | NetBIOS    | Comparticion de archivos (SMB)   |
+| 143    | IMAP       | Correo electronico               |
+| 443    | HTTPS      | Web cifrada                      |
+| 445    | SMB        | Comparticion de archivos Windows |
+| 3306   | MySQL      | Base de datos MySQL              |
+| 3389   | RDP        | Escritorio remoto Windows        |
+| 8080   | HTTP-Proxy | Servidor web alternativo         |
 
 ## Protocolos UDP
 

@@ -21,8 +21,14 @@ john --wordlist=/usr/share/wordlists/rockyou.txt hash
 Cuando una clave SSH tiene contrasena, se convierte a hash con ssh2john y se crackea.
 
 ```bash
+chmod 600 id_rsa
 ssh2john id_rsa > hash
 john --wordlist=/usr/share/wordlists/rockyou.txt hash
+```
+### Usar la Clave id_rsa
+
+```bash
+ssh -i id_rsa usuario@IP_objetivo
 ```
 
 ## Hashes Directos
@@ -34,5 +40,8 @@ hash-identifier
 ```
 
 ```bash
-john --format=<RAW-MD5> --wordlist=/usr/share/wordlists/rockyou.txt hash
+john --format=<RAW-MD5> --wordlist=/usr/share/wordlists/rockyou.txt hash.txt
+#o
+john --wordlist=/usr/share/wordlists/rockyou.txt hash.txt
 ```
+

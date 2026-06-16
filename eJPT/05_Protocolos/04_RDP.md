@@ -29,3 +29,5 @@ net user <nombre_usuario>
 ```cmd
 net localgroup Administrators
 ```
+
+hydra -l j <john> -p <"SuperSecurePass123"> rdp://10.129.12.20
